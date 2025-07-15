@@ -1,0 +1,14 @@
+{
+    "entries": [
+        {
+            "id": 1,
+            "title": "First Day",
+            "content": "Learned about HTML and CSS. It was fun!"
+        },
+        {
+            "id": 2,
+            "title": "React State",
+            "content": "useState is the key to making things interactive."
+        }
+    ]
+}
