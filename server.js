@@ -26,6 +26,8 @@ const PORT = 3001;
 const app = express();
 // Enable CORS for all routes.
 app.use(cors());
+// This middleware tells express to automatically parse incoming JSON request bodies.
+app.use(express.json());
 
 // --- API ROUTES ---
 // This is our route to get all journal entries.
@@ -34,6 +36,24 @@ app.get('/api/entries', (req, res) => {
   const entries = db.data.entries;
   // Send the entries back to the client as JSON.
   res.json(entries);
+});
+
+// This is our new route to handle creating a new journal entry.
+app.post('/api/entries', async (req, res) => {
+    // Get the new entry's data from the request doby.
+    const newEntry = req.body;
+
+    // A simple way to generate a new ID.
+    newEntry.id = Date.now();
+
+    // Add the new entry to the 'entries' array in our database.
+    db.data.entries.push(newEntry);
+
+    // IMPORTANT: Save the changes back to the db.json file.
+    await db.write();
+
+    // Send the newly created entry back to the client as confirmation.
+    res.json(newEntry);
 });
 
 // --- START SERVER ---
