@@ -1,24 +1,16 @@
 {
   "entries": [
     {
-      "id": 1,
-      "title": "First Day",
-      "content": "Learned about HTML and CSS. It was fun!"
-    },
+      "id": 1718854432123,
+      "title": "Full-Stack Success!",
+      "content": "I successfully connected my React frontend..."
+    }
+  ],
+  "users": [
     {
-      "id": 2,
-      "title": "React State",
-      "content": "useState is the key to making things interactive."
-    },
-    {
-      "title": "Full-Stack Success",
-      "content": "I successfully connected my React frontend to the Node.js backend and saved an entry to the database. It works!",
-      "id": 1752635566679
-    },
-    {
-      "title": "Debudding Journey",
-      "content": "Spent a lot of time today troubleshooting setup issues with Node.js,npm, and Tailwind. It was challenging, but i learned a lot about how the environment works. Fixing the final bug felt amazing!",
-      "id": 1752635622309
+      "id": 1752693530946,
+      "username": "testuser",
+      "password": "$2b$10$RvNhq7Tkd47MeNtPVrV.WudanVExNnHpFyin1IE0596gD2bBYA9XC"
     }
   ]
 }
