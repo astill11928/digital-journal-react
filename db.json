@@ -11,24 +11,14 @@
       "content": "useState is the key to making things interactive."
     },
     {
-      "title": "Full-Stack Success: I successfully connected my React frontend to the Node.js backend and saved an entry to the database. It works!",
-      "content": "",
-      "id": 1752612091103
+      "title": "Full-Stack Success",
+      "content": "I successfully connected my React frontend to the Node.js backend and saved an entry to the database. It works!",
+      "id": 1752635566679
     },
     {
-      "title": "Debudding Journey: Spent a lot of time today troubleshooting setup issues with Node.js,npm, and Tailwind. It was challenging, but i learned a lot about how the environment works. Fixing the final bug felt amazing!",
-      "content": "",
-      "id": 1752612498102
-    },
-    {
-      "title": "Test:test",
-      "content": "",
-      "id": 1752631287894
-    },
-    {
-      "title": "This is a test entry",
-      "content": "This is a test entry to post without bold.",
-      "id": 1752631783980
+      "title": "Debudding Journey",
+      "content": "Spent a lot of time today troubleshooting setup issues with Node.js,npm, and Tailwind. It was challenging, but i learned a lot about how the environment works. Fixing the final bug felt amazing!",
+      "id": 1752635622309
     }
   ]
 }

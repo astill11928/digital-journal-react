@@ -13,7 +13,7 @@ function App() {
   // This useEffect Hook fetches the initial entries when the component loads.
   useEffect(() => {
     const fetchEntries = async () => {
-      const response = await fetch('http://localhost:3001/api/entries');
+      const response = await fetch(`http://localhost:3001/api/entries`);
       const data = await response.json();
       setEntries(data);
     };
@@ -40,16 +40,25 @@ function App() {
     setNewContent('');
   };
 
+  // This function handles deleting an entry. It takes the entry's ID as an argument.
+  const handleDeleteEntry = async (idToDelete) => {
+    // Send a DELETE request to our server's new endpoint, including the ID in the URL.
+    await fetch(`http://localhost:3001/api/entries/${idToDelete}`, {
+      // Set the method to DELETE.
+      method: 'DELETE',
+    });
+    // Update our local 'entries' state by filtering out the deleted entry.
+    setEntries(entries.filter(entry => entry.id !== idToDelete));
+  };
+
   // --- RENDER ---
   return (
     <div className="p-8 font-sans">
       <h1 className="text-3xl font-bold text-gray-800">{title}</h1>
 
-      {/* A form for adding new journal entries. */}
       <form onSubmit={handleAddEntry} className="mt-8 p-4 bg-gray-100 rounded-lg shadow">
         <h3 className="text-xl font-semibold mb-4">Add a New Entry</h3>
         <div className="flex flex-col space-y-4">
-          {/* Input for the entry title. */}
           <input
             type="text"
             placeholder="Enter title"
@@ -58,7 +67,6 @@ function App() {
             className="p-2 border border-gray-300 rounded"
             required
           />
-          {/* THIS IS THE MISSING TEXTAREA FOR THE CONTENT */}
           <textarea
             placeholder="Write your entry..."
             value={newContent}
@@ -66,7 +74,6 @@ function App() {
             className="p-2 border border-gray-300 rounded"
             required
           />
-          {/* The submit button for the form. */}
           <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
             Add Entry
           </button>
@@ -84,8 +91,19 @@ function App() {
       <h2 className="mt-8 text-2xl font-semibold text-gray-700">Recent Entries</h2>
       <ul className="mt-2 list-disc list-inside space-y-2">
         {entries.map(entry => (
-          <li key={entry.id}>
-            <strong className="font-semibold">{entry.title}:</strong> {entry.content}
+          // THIS IS THE CORRECTED LIST ITEM BLOCK
+          <li key={entry.id} className="flex justify-between items-center p-2 bg-white rounded shadow">
+            {/* This span contains the text content */}
+            <span>
+              <strong className="font-semibold">{entry.title}:</strong> {entry.content}
+            </span>
+            {/* This button handles the delete action */}
+            <button
+              onClick={() => handleDeleteEntry(entry.id)}
+              className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded"
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>
